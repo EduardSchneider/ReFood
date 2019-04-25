@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>ReFood</title>
+<link rel = "stylesheet" type="text/css" src="https://github.com/EduardSchneider/ReFood/tree/master/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="product" placeholder="Product">
+        <input type="text" id="amount" placeholder="Amount">
+    	<input type="button" class="add-row" value="Add Row">
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Amount</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <a href='Screen 2.html'><button type="button" id="done">Done!</button></a>
+
+    <button onclick = "on()" type="button" id="overlaybtn">Overlay</button>
+
+    <div id="overlay" onclick = "off()">
+    	<div id="text"> WIP </div>
+    </div>
+
+</body> 
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".add-row").click(
+        	function(){
+	            var product = $("#product").val();
+	            var amount = $("#amount").val();
+	            var row = "<tr><td>" + product + "</td><td>" + amount + "</td><td><button type='button' class='delete'></td></tr>";
+	            $("table tbody").append(row);
+	        })
+        });
+
+        
+    // Find and remove selected table rows
+    $('table').on('click', '.delete', function(){
+  		$(this).closest('tr').remove();
+	});
+
+	function on() {
+  		document.getElementById("overlay").style.display = "block";
+	}
+
+    function off() {
+ 	 document.getElementById("overlay").style.display = "none";
+	}
+
+</script>
+
+</html>                            
