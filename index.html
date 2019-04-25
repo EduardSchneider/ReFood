@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form onSubmit="window.location.reload();">
+    <form id = "productsForm">
         <input type="text" id="product" placeholder="Product">
         <input type="text" id="amount" placeholder="Amount">
     	<input type="submit" class="add-row" value="Add Row">
@@ -47,7 +47,8 @@
 	            var row = "<tr><td>" + product + "</td><td>" + amount + "</td><td><button type='button' class='delete'></td></tr>";
 	            $("table tbody").append(row);
 	        })
-        });
+	document.getElementById("productsForm").reset();
+    });
 
         
     // Find and remove selected table rows
